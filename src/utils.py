@@ -1,11 +1,11 @@
 import json
 
-# from config import path_to_json
+from config import path_to_json
 from src.category import Category
 from src.product import Product
 
 
-def read_json(path_to_json):
+def read_json(path_to_json: str):
     """Функция чтения JSON файла"""
 
     with open(path_to_json, "r", encoding="utf-8") as file:
