@@ -1,7 +1,7 @@
 from product import Product
 
 class Category:
-    """ Класс продукт"""
+    """ Класс категория """
 
     name: str
     description: str

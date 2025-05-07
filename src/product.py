@@ -1,5 +1,5 @@
 class Product:
-    """ Класс продукт"""
+    """ Класс продукт """
 
     name: str
     description: str
