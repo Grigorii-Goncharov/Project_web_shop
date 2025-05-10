@@ -13,7 +13,7 @@ class Product:
         self.quantity = quantity
 
     @classmethod
-    def new_product(cls, products_dict, products_list):
+    def new_product(cls, products_list, products_dict):
         """
         Добавляет новый продукт в список или обновляет существующий:
         - Если продукт с таким именем найден, увеличивает quantity, а цену делает максимальной.
