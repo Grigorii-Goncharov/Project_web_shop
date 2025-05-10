@@ -12,15 +12,6 @@ class Product:
         self.__price = price
         self.quantity = quantity
 
-
-    @classmethod
-    def new_product(cls, name: str, description: str, price: float, quantity: int):
-        """Класс метод для добавления нового продукта"""
-
-
-        return cls(name, description, price, quantity)
-
-
     @classmethod
     def new_product(cls, products_dict, products_list):
         """
@@ -29,10 +20,10 @@ class Product:
         - Если не найден - добавляет новый продукт (new_product).
         """
 
-        name = products_dict['name']
-        description = products_dict['description']
-        price = float(products_dict['price'])
-        quantity = int(products_dict['quantity'])
+        name = products_dict["name"]
+        description = products_dict["description"]
+        price = float(products_dict["price"])
+        quantity = int(products_dict["quantity"])
 
         for product in products_list:
             if product.name == name:
@@ -40,25 +31,18 @@ class Product:
                 product.price = max(product.price, price)
                 return product
 
-        new_product = cls(
-            name=name,
-            description=description,
-            price=price,
-            quantity=quantity
-        )
+        new_product = cls(name=name, description=description, price=price, quantity=quantity)
         products_list.append(new_product)
         return new_product
 
-
     @property
     def price(self):
-        """ Получение цены из приватного статуса """
+        """Получение цены из приватного статуса"""
         return self.__price
-
 
     @price.setter
     def price(self, new_price):
-        """ Корректор цены из приватного статуса """
+        """Корректор цены из приватного статуса"""
 
         if new_price <= 0:
             print("Цена не должна быть нулевая или отрицательная")
@@ -73,5 +57,3 @@ class Product:
 
         self.__price = new_price
         print(f"Цена успешно изменена на {self.__price}")
-
-
