@@ -24,8 +24,13 @@ class Category:
         self.__products.append(product)
         Category.product_count += 1
 
+
     @property
     def products(self):
+        """
+        Геттер с выводом списка товаров. Геттер должен возвращать строку, чтобы пользователь класса мог
+        их распечатать или записать в какой-то другой интерфейс.
+        """
         products_str = ""
         for product in self.__products:
             products_str += f"{product.name}, {product.price} руб. Остаток: {product.quantity} шт.\n"

@@ -21,14 +21,6 @@ class Product:
         return cls(name, description, price, quantity)
 
 
-    @property
-    def products(self):
-        products_str = ""
-        for product in self.__products:
-            products_str += f"{product.name}, {product.price} руб. Остаток: {product.quantity} шт.\n"
-        return products_str
-
-
     @classmethod
     def new_product(cls, products_dict, products_list):
         """
@@ -60,11 +52,14 @@ class Product:
 
     @property
     def price(self):
+        """ Получение цены из приватного статуса """
         return self.__price
 
 
     @price.setter
     def price(self, new_price):
+        """ Корректор цены из приватного статуса """
+
         if new_price <= 0:
             print("Цена не должна быть нулевая или отрицательная")
             return
