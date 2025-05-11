@@ -1,6 +1,6 @@
 import json
 
-from config import path_to_json
+# from config import path_to_json
 from src.category import Category
 from src.product import Product
 
