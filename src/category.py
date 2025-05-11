@@ -18,11 +18,19 @@ class Category:
         Category.category_count += 1
         Category.product_count += len(products)
 
-
-    def add_product(self, product):
-        """Метод добавления нового продукта"""
+    def add_product(self, product: Product) -> None:
+        """Метод для добавления товаров в категорию"""
         if not isinstance(product, Product):
-            raise TypeError("Можно добавлять только объекты класса Product или его наследников.")
+            raise TypeError("Можно добавлять только объекты от класса Product или его подклассов")
+
+        # Проверка на наличие позиции товара
+        for existing_product in self.__products:
+            if existing_product.name == product.name:
+                existing_product.quantity += product.quantity
+                if product.price > existing_product.price:
+                    existing_product.price = product.price
+                return
+
         self.__products.append(product)
         Category.product_count += 1
 
