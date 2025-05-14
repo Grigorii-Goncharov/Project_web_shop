@@ -57,3 +57,10 @@ class Product:
 
         self.__price = new_price
         print(f"Цена успешно изменена на {self.__price}")
+
+    def __str__(self):
+        return f"{self.name}, {self.__price} руб. Остаток: {self.quantity} шт."
+
+
+
+
