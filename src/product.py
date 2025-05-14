@@ -59,7 +59,13 @@ class Product:
         print(f"Цена успешно изменена на {self.__price}")
 
     def __str__(self):
+        """Метод преобразования атрибутов в строку и выводом в консоль"""
         return f"{self.name}, {self.__price} руб. Остаток: {self.quantity} шт."
+
+    def __add__(self, other):
+        """ Метод  получения суммы всех товаров на складе"""
+        cost_all_products = self.__price * self.quantity + other.__price * other.quantity
+        return cost_all_products
 
 
 

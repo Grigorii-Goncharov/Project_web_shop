@@ -46,5 +46,6 @@ class Category:
         return products_str
 
     def __str__(self):
+        """Метод преобразования атрибутов в строку и выводом в консоль"""
         return f"{self.name}, количество продуктов: {len(self.__products)}"
 
