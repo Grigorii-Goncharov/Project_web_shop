@@ -18,6 +18,10 @@ class Category:
         Category.category_count += 1
         Category.product_count += len(products)
 
+    def get_products(self):
+        """Безопасное получение Атрибута (копия) - нужна для инкапсуляции в классе CategoryIterator. см. сноска 1"""
+        return self.__products.copy()
+
     def add_product(self, product: Product) -> None:
         """Метод для добавления товаров в категорию"""
         if not isinstance(product, Product):
