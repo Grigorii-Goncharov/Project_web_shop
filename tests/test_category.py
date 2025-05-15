@@ -56,7 +56,7 @@ def test_products_list_property_returns_list(product_category: Category) -> None
 def test_category_str(category, products_list):
     total_quantity = sum(p.quantity for p in products_list)
     expected_str = f"{category.name}, количество продуктов: {total_quantity}"
-    assert str(category) != expected_str
+    assert str(category) == expected_str
 
 
 def test_category_str_empty():

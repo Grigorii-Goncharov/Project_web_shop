@@ -19,8 +19,9 @@ class Category:
         Category.product_count += len(products)
 
     def __str__(self):
-        """Метод преобразования атрибутов в строку и выводом в консоль"""
-        return f"{self.name}, количество продуктов: {len(self.__products)}"
+        """Метод  суммировать количество каждого продукта (quantity). общее количество единиц товара в категории. """
+        total_quantity = sum(product.quantity for product in self.__products)
+        return f"{self.name}, количество продуктов: {total_quantity}"
 
     def add_product(self, product: Product) -> None:
         """Метод для добавления товаров в категорию"""
