@@ -3,21 +3,19 @@ from src.product import Product
 
 
 class CategoryIterator:
-    """Итеротор перебирает товары одной категории и возвращает очередной товар категории."""
+    "Перебирает товары одной категории и возвращает очередной товар категории."
 
-    def __init__(self, category_obj):
-        self.category_obj = category_obj
-
+    def __init__(self, obj_category):
+        self.__products = obj_category
+        self.index = 0
 
     def __iter__(self):
         self.index = 0
         return self
 
     def __next__(self):
-        """Итератор"""
-        products = self.category_obj.get_products() # Сноска 1  метод def get_products в классе Category
-        if self.index < len(products):
-            product = products[self.index]
+        if self.index < len(self.__products.products_list):
+            product = self.__products.products_list[self.index]
             self.index += 1
             return product
         else:

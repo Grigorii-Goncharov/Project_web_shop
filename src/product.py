@@ -64,9 +64,7 @@ class Product:
 
     def __add__(self, other):
         """Метод получения суммы всех товаров на складе"""
+        if not isinstance(other, Product):
+            raise TypeError("Можно добавлять только объекты от класса Product или его подклассов")
         cost_all_products = self.__price * self.quantity + other.__price * other.quantity
         return cost_all_products
-
-
-
-

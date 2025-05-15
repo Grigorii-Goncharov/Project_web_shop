@@ -18,9 +18,9 @@ class Category:
         Category.category_count += 1
         Category.product_count += len(products)
 
-    def get_products(self):
-        """Безопасное получение Атрибута (копия) - нужна для инкапсуляции в классе CategoryIterator. см. сноска 1"""
-        return self.__products.copy()
+    def __str__(self):
+        """Метод преобразования атрибутов в строку и выводом в консоль"""
+        return f"{self.name}, количество продуктов: {len(self.__products)}"
 
     def add_product(self, product: Product) -> None:
         """Метод для добавления товаров в категорию"""
@@ -49,7 +49,6 @@ class Category:
             products_str += f"{product.name}, {product.price} руб. Остаток: {product.quantity} шт.\n"
         return products_str
 
-    def __str__(self):
-        """Метод преобразования атрибутов в строку и выводом в консоль"""
-        return f"{self.name}, количество продуктов: {len(self.__products)}"
-
+    @property
+    def products_list(self):
+        return self.__products
