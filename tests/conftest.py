@@ -1,7 +1,7 @@
 import pytest
 
 from src.category import Category
-from src.product import Product,Smartphone, LawnGrass
+from src.product import LawnGrass, Product, Smartphone
 
 
 @pytest.fixture
@@ -43,6 +43,7 @@ def product_category_for_iter(product_unit, product_unit_2) -> Category:
     products = [product_unit, product_unit_2]
     return Category("Мобильная электроника", "Smartphone", products)
 
+
 # Тесты 16.1
 @pytest.fixture
 def smartphone_item() -> Product:
@@ -56,13 +57,14 @@ def smartphone_item() -> Product:
                       512,
                       "Gold")
 
+
 @pytest.fixture
 def lawngrass_item() -> Product:
     """осуществляет возврат Класс LawnGrass"""
     return LawnGrass("Зелёный ковер",
-                      "Газонная трава",
-                      1000,
-                      500,
-                      "Россия",
-                      "3 месяца",
-                      "Зеленая")
+                     "Газонная трава",
+                     1000,
+                     500,
+                     "Россия",
+                     "3 месяца",
+                     "Зеленая")
