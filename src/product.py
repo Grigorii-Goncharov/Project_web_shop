@@ -71,6 +71,7 @@ class Product:
 
 
 class Smartphone(Product):
+    """Дочерний класс Smartphone"""
     def __init__(self, name: str, description: str, price: float, quantity: int, efficiency: float, model: str, memory: int, color: str ) -> None:
         super().__init__(name, description, price, quantity)
         self.efficiency = efficiency
@@ -84,6 +85,7 @@ class Smartphone(Product):
         return self.price + other.price
 
 class LawnGrass(Product):
+    """Дочерний класс газонная трава"""
     def __init__(self, name: str, description: str, price: float, quantity: int, country: str, germination_period: str, color: str) -> None:
         super().__init__(name, description, price, quantity)
         self.country = country
