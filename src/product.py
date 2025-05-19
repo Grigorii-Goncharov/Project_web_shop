@@ -68,3 +68,29 @@ class Product:
             raise TypeError("Можно добавлять только объекты от класса Product или его подклассов")
         cost_all_products = self.__price * self.quantity + other.__price * other.quantity
         return cost_all_products
+
+
+class Smartphone(Product):
+    def __init__(self, name: str, description: str, price: float, quantity: int, efficiency: float, model: str, memory: int, color: str ) -> None:
+        super().__init__(name, description, price, quantity)
+        self.efficiency = efficiency
+        self.model = model
+        self. memory =  memory
+        self.color = color
+
+    def __add__(self, other):
+        if type(self) is not type(other):
+            raise TypeError('Складывать можно только объекты Employee и дочерние от них.')
+        return self.price + other.price
+
+class LawnGrass(Product):
+    def __init__(self, name: str, description: str, price: float, quantity: int, country: str, germination_period: str, color: str) -> None:
+        super().__init__(name, description, price, quantity)
+        self.country = country
+        self.germination_period = germination_period
+        self.color = color
+
+    def __add__(self, other):
+        if type(self)is not type(other):
+            raise TypeError('Складывать можно только объекты Employee и дочерние от них.')
+        return self.price + other.price
