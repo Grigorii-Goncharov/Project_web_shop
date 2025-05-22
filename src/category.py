@@ -19,7 +19,7 @@ class Category:
         Category.product_count += len(products)
 
     def __str__(self):
-        """Метод  суммировать количество каждого продукта (quantity). общее количество единиц товара в категории. """
+        """Метод  суммировать количество каждого продукта (quantity). общее количество единиц товара в категории."""
         total_quantity = sum(product.quantity for product in self.__products)
         return f"{self.name}, количество продуктов: {total_quantity}"
 

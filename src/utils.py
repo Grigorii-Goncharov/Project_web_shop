@@ -1,6 +1,6 @@
 import json
 
-# from config import path_to_json
+from config import path_to_json
 from src.category import Category
 from src.product import Product
 
@@ -53,3 +53,24 @@ def create_object_from_json(data):
 #         # Выводим все товары в категории
 #         for product in category.products:
 #             print(f"  {product}")
+
+if __name__ == "__main__":
+    # 1. Загружаем данные
+    data = read_json(path_to_json)
+    categories = create_object_from_json(data)  # Получаем список категорий
+
+    # 2. Выводим общую информацию
+    print(f"\nВсего категорий: {Category.category_count}")
+    print(f"Всего товаров: {Category.product_count}")
+
+    # 3. Выводим подробную информацию по каждой категории
+    for category in categories:
+        print(f"\nКатегория: {category.name}")
+        print(f"Описание: {category.description}")
+        print(f"Количество товаров: {len(category.products_list)}")
+
+        for product in category.products_list:  # <-- исправлено здесь
+            print(f"  Товар: {product.name}")
+            print(f"    Описание: {product.description}")
+            print(f"    Цена: {product.price}")
+            print(f"    Количество: {product.quantity}")
