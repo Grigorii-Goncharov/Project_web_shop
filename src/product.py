@@ -92,7 +92,7 @@ class Smartphone(Product):
 
     def __add__(self, other):
         if type(self) is not type(other):
-            raise TypeError("Складывать можно только объекты Employee и дочерние от них.")
+            raise TypeError("Складывать можно только объекты Smartphone и дочерние от них.")
         return self.price + other.price
 
 
@@ -116,5 +116,5 @@ class LawnGrass(Product):
 
     def __add__(self, other):
         if type(self) is not type(other):
-            raise TypeError("Складывать можно только объекты Employee и дочерние от них.")
+            raise TypeError("Складывать можно только объекты LawnGrass и дочерние от них.")
         return self.price + other.price
