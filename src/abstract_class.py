@@ -8,6 +8,11 @@ class BaseProduct(ABC):
     def __add__(self, other) -> float | int:
         pass
 
+    @classmethod
+    @abstractmethod
+    def new_product(cls, *args, **kwargs):
+        pass
+
     @property
     @abstractmethod
     def price(self) -> float:
