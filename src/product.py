@@ -1,6 +1,7 @@
 from src.abstract_class import BaseProduct
+from src.print_mixin import PrintMixin
 
-class Product(BaseProduct):
+class Product(BaseProduct, PrintMixin):
     """Класс продукт"""
 
     name: str
@@ -13,6 +14,7 @@ class Product(BaseProduct):
         self.description = description
         self.__price = price
         self.quantity = quantity
+        super().__init__()
 
     @classmethod
     def new_product(cls, products_list, products_dict):
