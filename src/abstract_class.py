@@ -1,5 +1,6 @@
 from abc import ABC, abstractmethod
 
+
 class BaseProduct(ABC):
     """базовый абстрактный класс, который станет родительским для класса продуктов."""
 
@@ -17,6 +18,9 @@ class BaseProduct(ABC):
         pass
 
 
+class FormationProduct(ABC):
+    """Абстрактный класс, для оформления продукта заказа."""
 
-
-
+    @abstractmethod
+    def __str__(self) -> str:
+        pass

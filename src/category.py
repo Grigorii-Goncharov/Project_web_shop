@@ -1,7 +1,8 @@
 from src.product import Product
+from src.abstract_class import FormationProduct
 
 
-class Category:
+class Category(FormationProduct):
     """Класс категория"""
 
     name: str
@@ -53,3 +54,17 @@ class Category:
     @property
     def products_list(self):
         return self.__products
+
+
+class Order(FormationProduct):
+    """Класс для оформления заказа"""
+
+    def __init__(self, product, quantity):
+        self.product = product  # Ссылка на объект товара (например, Smartphone или LawnGrass)
+        self.quantity = quantity  # Количество купленного товара
+        if product.quantity < self.quantity:
+            raise ValueError("Количество заказа превышает количество на складе")
+        self.total_price = product.price * quantity  # получаем итоговую стоимость
+
+    def __str__(self):
+        return f'{self.product}, {self.quantity}, {self.total_price}'
