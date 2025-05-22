@@ -1,4 +1,6 @@
-class Product:
+from src.abstract_class import BaseProduct
+
+class Product(BaseProduct):
     """Класс продукт"""
 
     name: str
