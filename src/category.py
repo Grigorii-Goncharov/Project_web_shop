@@ -1,5 +1,6 @@
 from src.product import Product
 from src.abstract_class import FormationProduct
+from src.class_of_exception import ClassOfException
 
 
 class Category(FormationProduct):
@@ -20,8 +21,8 @@ class Category(FormationProduct):
         self.__products = products
         try:
             if self.__products == []:
-                raise TypeError("Передан пустой список")
-        except TypeError as e:
+                raise ClassOfException("Передан пустой список")
+        except ClassOfException as e:
             print(f"Вызвана ошибка: {e}")
         else:
             print("Товар добавлен")
@@ -98,10 +99,10 @@ class Order(FormationProduct):
             if product.quantity < self.quantity:
                 raise ValueError("Количество заказа превышает количество на складе")
             elif self.quantity <= 0:
-                raise UndefinedObject("Количество товара должно быть больше нуля")
+                raise ClassOfException("Количество товара должно быть больше нуля")
         except ValueError as e:
             print(f"Вызвана ошибка: {e}")
-        except UndefinedObject as e:
+        except ClassOfException as e:
             print(f"Ошибка: {e}")
             self.total_price = 0  # Дефолтное значение
         else:
