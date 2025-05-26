@@ -56,6 +56,28 @@ class Category(FormationProduct):
         return self.__products
 
 
+    def middle_price(self):
+        """
+        Метод, который подсчитывает средний ценник всех товаров.
+        """
+        try:
+            if not self.products_list:
+                raise TypeError("Список товаров пуст")
+
+            prices = [product.price for product in self.products_list if product.price]
+            average_sum_product = sum(prices) / len(prices)
+
+        except ZeroDivisionError:
+            print("На ноль делить нельзя")
+        except TypeError as e:
+            print(f"Ошибка: {e}")
+            return 0
+        else:
+            return average_sum_product
+        finally:
+            print("Операция завершена")
+
+
 class Order(FormationProduct):
     """Класс для оформления заказа"""
 
