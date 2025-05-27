@@ -1,6 +1,6 @@
 import pytest
 
-from src.category import Category
+from src.category import Category, Order
 from src.product import Product
 
 

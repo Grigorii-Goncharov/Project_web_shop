@@ -1,6 +1,6 @@
-from src.product import Product
 from src.abstract_class import FormationProduct
 from src.class_of_exception import ClassOfException
+from src.product import Product
 
 
 class Category(FormationProduct):
@@ -92,8 +92,9 @@ class Category(FormationProduct):
 
 class Order(FormationProduct):
     """Класс для оформления заказа"""
+
     def __init__(self, product, quantity):
-        self.product = product# Ссылка на объект товара (например, Smartphone или LawnGrass)
+        self.product = product  # Ссылка на объект товара (например, Smartphone или LawnGrass)
         self.quantity = quantity  # Количество купленного товара
         try:
             if product.quantity < self.quantity:
@@ -112,9 +113,8 @@ class Order(FormationProduct):
 
         self.total_price = product.price * quantity  # Итоговая стоимость
 
-
     def __str__(self):
-        return f'{self.product}, {self.quantity}, {self.total_price}'
+        return f"{self.product}, {self.quantity}, {self.total_price}"
 
 
 # if __name__ == "__main__":

@@ -68,3 +68,11 @@ def lawngrass_item() -> Product:
                      "Россия",
                      "3 месяца",
                      "Зеленая")
+
+@pytest.fixture
+def category_item() -> Category:
+    # Создаем список товаров (с одним товаром)
+    product1 = Product("Samsung QLED", "4K TV", 50000, 5)
+    product2 = Product("Samsung LED", "HD TV", 20000, 20)
+    products = [product1, product2]
+    return Category("Телевизоры", "Устройство отображения фильмов и тв-передач", products)
