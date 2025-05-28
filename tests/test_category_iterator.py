@@ -1,3 +1,6 @@
+import pytest
+
+from src.category import Category
 from src.category_iterator import CategoryIterator
 from src.product import Product
 
@@ -29,3 +32,16 @@ def test_iterator_returns_product_instances(product_category):
     iterator = CategoryIterator(product_category)
     for product in iterator:
         assert isinstance(product, Product)
+
+
+def test_iterator_raises_stop_iteration_after_end() -> None:
+    """Проверяет, что после окончания итерации выбрасывается StopIteration"""
+    product = Product("Товар", "Описание", 100.0, 5)
+    category = Category("Тест", "Категория для теста", [product])
+    iterator = CategoryIterator(category)
+
+    next(iterator)  # Получаем первый (и единственный) элемент
+
+    # Проверяем, что следующее обращение вызывает StopIteration
+    with pytest.raises(StopIteration):
+        next(iterator)

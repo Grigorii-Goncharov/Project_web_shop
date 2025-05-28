@@ -48,26 +48,14 @@ def product_category_for_iter(product_unit, product_unit_2) -> Category:
 @pytest.fixture
 def smartphone_item() -> Product:
     """осуществляет возврат Класс Smartphone"""
-    return Smartphone("Iphone",
-                      "Американский Сматфон",
-                      12000,
-                      20,
-                      20.0,
-                      "16 PRO",
-                      512,
-                      "Gold")
+    return Smartphone("Iphone", "Американский Сматфон", 12000, 20, 20.0, "16 PRO", 512, "Gold")
 
 
 @pytest.fixture
 def lawngrass_item() -> Product:
     """осуществляет возврат Класс LawnGrass"""
-    return LawnGrass("Зелёный ковер",
-                     "Газонная трава",
-                     1000,
-                     500,
-                     "Россия",
-                     "3 месяца",
-                     "Зеленая")
+    return LawnGrass("Зелёный ковер", "Газонная трава", 1000, 500, "Россия", "3 месяца", "Зеленая")
+
 
 @pytest.fixture
 def category_item() -> Category:
